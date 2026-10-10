@@ -1,0 +1,8 @@
+streamlit
+polars
+pandas
+pydeck
+plotly
+pyshp
+reportlab
+Pillow
