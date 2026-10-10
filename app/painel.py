@@ -214,8 +214,10 @@ st.markdown("""
     .rk-val b { font-size: 13px; }
 }
 @media (max-width: 600px) {
+    /* Reserva espaço para a barra superior do Streamlit em celulares,
+       evitando que o título fique escondido atrás dos controles fixos. */
     .block-container {
-        padding-top: 0.75rem !important;
+        padding-top: 4.5rem !important;
         padding-bottom: 1rem !important;
         padding-left: 0.65rem !important;
         padding-right: 0.65rem !important;
