@@ -63,16 +63,16 @@ st.markdown("""
 }
 .sidebar-author-copy { min-width: 0; }
 .sidebar-author-label {
-    color: #cbd5e1; font-size: 10px; line-height: 1.4;
+    color: var(--text-color); font-size: 10px; line-height: 1.4;
     font-weight: 700; letter-spacing: 0.055em; margin-bottom: 4px;
 }
 .sidebar-author-name {
-    color: #f8fafc; font-size: 14px;
+    color: var(--text-color); font-size: 14px;
     line-height: 1.35; font-weight: 750; overflow-wrap: anywhere;
     margin-bottom: 5px;
 }
 .sidebar-author-sub {
-    color: #c7d2fe; font-size: 11px; line-height: 1.4;
+    color: var(--text-color); font-size: 11px; line-height: 1.4;
 }
 
 [data-testid="stSidebar"] [data-testid="stWidgetLabel"] p {
@@ -92,7 +92,7 @@ st.markdown("""
     border-radius: 99px;
     font-size: 12px;
     background: rgba(99,102,241,0.15);
-    color: #818cf8;
+    color: var(--text-color);
     font-weight: 600;
 }
 
@@ -138,9 +138,18 @@ st.markdown("""
     background: var(--secondary-background-color, rgba(128,128,128,0.08));
     height: 100%;
 }
-.kpi-l { font-size: 12px; opacity: 0.65; }
-.kpi-v { font-size: 24px; font-weight: 800; letter-spacing: -0.4px; margin: 3px 0; overflow-wrap: anywhere; }
-.kpi-d { font-size: 12px; color: #22c55e; }
+.kpi-l { font-size: 12px; opacity: 0.75; color: var(--text-color); }
+.kpi-v { font-size: 24px; font-weight: 800; letter-spacing: -0.4px; margin: 3px 0; overflow-wrap: anywhere; color: var(--text-color); }
+.kpi-d { font-size: 12px; color: var(--text-color); opacity: 0.85; }
+
+/* Todo o texto HTML personalizado acompanha o tema claro/escuro do Streamlit. */
+.chip, .rk-box, .rk-box *, .insight, .insight *, .kpi, .kpi * {
+    color: var(--text-color);
+}
+
+/* Mantém o texto branco somente no cartão com fundo em gradiente. */
+.hero, .hero * { color: #ffffff; }
+.hero-foto-vazia { color: #4f46e5; }
 
 /* ---------- Ranking em barras ---------- */
 .rk-box {
@@ -1285,7 +1294,7 @@ with col_mapa:
                 ),
                 paper_bgcolor="rgba(0,0,0,0)"
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True, theme="streamlit")
 
             encontrados = int((base_mapa["VOTOS"] > 0).sum())
             st.caption(
@@ -1482,7 +1491,7 @@ if comparar and len(selecionados) > 1:
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)"
     )
-    st.plotly_chart(fig_linha, use_container_width=True)
+    st.plotly_chart(fig_linha, use_container_width=True, theme="streamlit")
 
 # ---------------- INSIGHTS AUTOMÁTICOS ----------------
 
